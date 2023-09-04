@@ -20,9 +20,20 @@ for tc in range(1, T+1):
         temp.append(numbers[(N-i-1)])
         temp.append(numbers[i])
 
-    print(f"#{tc}", end=' ')
-    print(*temp)
-    
-#    print(f"#{tc}",*temp) 
+    # print(f"#{tc}", end=' ')
+    # print(*temp)
     
 
+    a = str(temp)
+    print(''.join(a))
+
+
+
+
+    # for i in range(5):
+    #     temp.append(str(numbers[(N-i-1)]))
+    #     temp.append(str(numbers[i]))
+
+
+    # a = ' '.join(temp) # 문자형변수로! 
+    # print(a)

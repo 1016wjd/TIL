@@ -47,4 +47,23 @@ for tc in range(1, T+1):
     print(f'#{tc} {count}')
                     
             
-        
+
+
+#    set을 이용한 풀이
+#    nums = list(map(int, input().split()))
+
+#     answer = 0
+
+#     now = 0
+#     while now<N-K:
+#         if len(set(nums) & set(range(now+1, now+K+1))):
+#             now = max(set(nums) & set(range(now+1, now+K+1)))
+#             answer += 1
+
+#         else:
+#             answer = 0
+#             break
+
+
+
+#     print("#{} {}".format(tc, answer))       
