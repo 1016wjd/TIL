@@ -10,15 +10,23 @@ sys.stdin = open(input_path)
 # idx 행 의미 i는 열 의미 visited 열 제외  
 
 def search(idx, visited, SUM):
-    global min_sum
+    global min_sum 
+    # 글로벌 변수 (안밖에서 모두 사용할 수 있게!!)
+    # <=> 로컬 변수는 함수안에서만 사용할 수 있는 변수 > 함수가 끝나는 순간 날아감
 
     if idx >= N : # 모든 행을 모두 돌때까지 
         if SUM < min_sum:
             min_sum = SUM # 최소합 갱신 
         return 
 
+    # return 함수에서만 사용 가능 1. 함수 끝내기 2. 값반환
+    # break > 반복문을 끝내는 역할
+    # pass = continue
+
+
     # if SUM > min_sum:
     #     return
+    # 세번째까지 가줄 필요가 없으므로!! 연산횟수를 줄이기 위해서!! 
 
     for i in range(N):
         if  visited[i] == False:
@@ -73,7 +81,3 @@ for tc in range(1, T+1):
 
 
 
-    # 질문정리 
-    # Q1 : 21번째 문장은 단계를 줄이기위한 코드인건가요?
-    # Q2 : 리턴은 함수를 끝내는 명령어인가요? 
-    # Q3 : 글로벌변수와 매개변수?의 설정 차이를 모르겠어요 

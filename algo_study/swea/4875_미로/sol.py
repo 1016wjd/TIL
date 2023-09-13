@@ -56,6 +56,8 @@ for tc in range(1, T+1):
                 elif miro[nx][ny] == 3:
                     result = 1 
                     break
+                # else:
+                #     pass
 
     print(f'#{tc} {result}')
 
