@@ -1,3 +1,5 @@
+# max 값으로 하다보니 count와 같은 상황이 되어버림 
+
 import sys
 from pathlib import Path
 from pprint import pprint
@@ -17,51 +19,43 @@ for tc in range(1, T+1):
     for _ in range(E):
         start, end = map(int, input().split())
         graph[start][end] = 1 
+        graph[end][start] = 1
     
     S, G = map(int, input().split())
 
     # pprint(graph)
 
-    # 방문기록
-    visited = [False] * (V+1)
+    # 방문 번호 기록
+    visited = [0] * (V+1)
 
     now = S
     # 스택기록
     stack = []
     stack.append(now)
   
-    # 시작점 설정
-    visited[now] = True 
+    # # 시작점 설정
+    # visited[now] = 1
     
     result = 0
     # 스택이 빌때까지
     while stack:
 
         now = stack.pop()
-        visited[now] = True
 
         for i in range(1,V+1):
             if graph[now][i] == 1:
-                if visited[i] == False:
-                    visited[i] == True
+                if visited[i] == 0:
+                    visited[i] == max(visited)+1
                     stack.append(i)
 
-    #이프분을 밑으로 내려야함 
-    if visited[G] == True:
-        result = 1
-    else:
-        result =0
+    # print(max(visited))
+
+    # if visited[G] > 0:
+    #     result = visited[G]
+    # else:
+    #     result = 0
                     
  
+    result = visited[G]
 
     print(f'#{tc} {result}')
-
-                        
-
-
-# ## 런타임에러 > 시간이 아니라 돌리는 중 (=  런타임)에 에러가 남
-        
-
-        
-    
-

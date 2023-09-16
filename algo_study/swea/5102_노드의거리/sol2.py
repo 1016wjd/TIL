@@ -1,7 +1,6 @@
-import sys
+# count로 해보려고 했으나 지나가지 않은 노드도 세어짐import sys
 from pathlib import Path
 from pprint import pprint
-
 file_path = Path(__file__).parent
 input_path = file_path / 'input.txt'
 sys.stdin = open(input_path)
@@ -20,9 +19,7 @@ for tc in range(1, T+1):
     
     S, G = map(int, input().split())
 
-    # pprint(graph)
-
-    # 방문기록
+        # 방문기록
     visited = [False] * (V+1)
 
     now = S
@@ -34,34 +31,27 @@ for tc in range(1, T+1):
     visited[now] = True 
     
     result = 0
+    count = 0
     # 스택이 빌때까지
     while stack:
 
         now = stack.pop()
         visited[now] = True
-
+        count += 1 
         for i in range(1,V+1):
             if graph[now][i] == 1:
                 if visited[i] == False:
                     visited[i] == True
                     stack.append(i)
 
+
     #이프분을 밑으로 내려야함 
     if visited[G] == True:
-        result = 1
+        result = count
     else:
-        result =0
+        result = 0
+        
                     
  
 
     print(f'#{tc} {result}')
-
-                        
-
-
-# ## 런타임에러 > 시간이 아니라 돌리는 중 (=  런타임)에 에러가 남
-        
-
-        
-    
-
